@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Bingol</title>
+	<meta charset="utf-8">
 	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
@@ -10,42 +11,4 @@
 </body>
 </html>
 
-<script type="text/javascript">
-	var chubs = [];
-	var igual = false;
-	var n;
-
-	$('#btnRoda').click(function(e){
-		igual = false;
-
-		n = gerarNumero();
-
-		//chubs.push(n);
-
-		$.get("numeros.html", function (data) {
-			alert(data);
-			chubs = parseJSON(text);
-		});
-
-		$.each(chubs, function (index, value) {
-			alert(value);
-		})
-
-		alert(n);
-	});
-
-	function gerarNumero(){
-		numero = Math.floor(Math.random() * 100) + 1;
-		$.each(chubs, function (index, chubinha) {
-			if(chubinha === numero){
-				igual = true;
-			}
-		})
-
-		if(igual == true){
-			gerarNumero();
-		} else {
-			return numero;
-		}
-	}
-</script>
+<script type="text/javascript" src="bingol.js"></script>
