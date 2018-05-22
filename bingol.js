@@ -5,6 +5,11 @@ var igual = false;
 var n;
 
 $(function () {
+	console.log(localStorage);
+	// vai criar uma nova instancia no localstorage toda vez que entrar na pagina para armazenar o jogo :D
+	var d = new Date();
+	var entry = d.toJSON();
+
 	for (var i = 1; i < 100; i++) {
 		numeros.push(i);
 	}
@@ -13,7 +18,7 @@ $(function () {
 		igual 	= false;
 
 		n = gerarNumero();
-		console.log(n);
+		
 		if(n === 100){
 			alert('acabou');
 			return false;
@@ -23,8 +28,7 @@ $(function () {
 
 		numeros.splice(n, 1);
 
-		localStorage.setItem("bingol", JSON.stringify(chubs));
-		console.log(localStorage.getItem("bingol"));
+		localStorage.setItem(entry, JSON.stringify(chubs));
 	});
 
 	/**
