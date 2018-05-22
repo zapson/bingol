@@ -15,14 +15,12 @@ $(function () {
 	}
 
 	$('#btnRoda').click(function(e){
-		igual 	= false;
-
-		n = gerarNumero();
-		
-		if(n === 100){
+		if(numeros.length === 0){
 			alert('acabou');
 			return false;
 		}
+
+		n = gerarNumero();
 
 		chubs.push(numeros[n]);
 
@@ -31,15 +29,17 @@ $(function () {
 		localStorage.setItem(entry, JSON.stringify(chubs));
 	});
 
-	/**
-	*	Gera um número aleatório de acordo com o tamanho do array
-	*/
-	function gerarNumero(){
-		if(numeros.length === 0){
-			return 100;
-		}
-		numero = Math.floor(Math.random() * numeros.length);
+	$('#btnBingo').click(function () {
+		
+	})
 
-		return numero;
-	}
 });
+
+/**
+*	Gera um número aleatório de acordo com o tamanho do array
+*/
+function gerarNumero(){
+	numero = Math.floor(Math.random() * numeros.length);
+
+	return numero;
+}
