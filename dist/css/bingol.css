@@ -1,0 +1,27 @@
+/**
+*	Css principal para bingol.js
+*/
+
+body {
+	background-color: #ecf0f1;
+}
+
+.main-h1 {
+	font-size 	: 48pt;
+	margin-top 	: 200px;
+	color 		: #34495e;
+}
+
+.main-h1:hover {
+	color : #7f8c8d;
+}
+
+.main-text {
+	margin-top 		: 30px;
+	margin-bottom 	: 30px;
+}
+
+.bingol-numero{
+	font-size: 60pt;
+
+}
