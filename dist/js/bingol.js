@@ -5,7 +5,6 @@ var igual = false;
 var n;
 
 $(function () {
-	console.log(localStorage);
 	// vai criar uma nova instancia no localstorage toda vez que entrar na pagina para armazenar o jogo :D
 	var d = new Date();
 	var entry = d.toJSON();
