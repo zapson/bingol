@@ -3,12 +3,17 @@ var chubs = [];
 var numeros = [];
 var igual = false;
 var n;
+var stop = false;
 // vai criar uma nova instancia no localstorage toda vez que entrar na pagina para armazenar o jogo :D
 var d = new Date();
 var entry = d.toJSON();
 
 $(function () {
-
+	$(document).keypress(function (e) {
+		if(e.charCode === 32){
+			tirarBolinha();
+		}
+	});
 	for (var i = 1; i < 100; i++) {
 		numeros.push(i);
 	}
@@ -25,20 +30,22 @@ $(function () {
 
 });
 
-function tirarBolinha(){
-	if(numeros.length === 0){
-		return false;
+if(!stop) {
+	function tirarBolinha(){
+		if(numeros.length === 0){
+			stop = true;
+		}
+
+		n = gerarNumero();
+
+		$('.bingol-numero').text(n);
+
+		chubs.push(numeros[n]);
+
+		numeros.splice(n, 1);
+
+		localStorage.setItem(entry, JSON.stringify(chubs));
 	}
-
-	n = gerarNumero();
-
-	$('.bingol-numero').text(n);
-
-	chubs.push(numeros[n]);
-
-	numeros.splice(n, 1);
-
-	localStorage.setItem(entry, JSON.stringify(chubs));
 }
 
 /**
