@@ -62,3 +62,7 @@ body {
 	margin-right: 5px;
 	margin-bottom: 5px;
 }
+
+#modalGanhou {
+	background-color: green;
+}

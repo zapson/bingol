@@ -72,8 +72,9 @@ function gerarNumero(numeros){
  * pula para o próximo!
  */
 function checaCaracter() {
+	
 	var cells = $('.bingol-cell').keydown(function (e) {
-		console.log(window.getSelection);
+		// console.log(window.getSelection);
 		// Caso seja diferente de teclas de apagar ou TAB
 		if(e.keyCode !== 8 && e.keyCode !== 46 && e.keyCode !== 9){
 			if($(this).val().length == 2) {
@@ -187,11 +188,39 @@ function validarCampos() {
 		})
 	})
 
-	$('.bingol-cells').find('input').addClass('bingol-success');
-	$(erros).each(function (index, erro) {
-		$('.bingol-cells').find('#'+erro.i).removeClass('bingol-success');
-		$('.bingol-cells').find('#'+erro.i).addClass('bingol-error');
-	})
+	if(erros.length !==	 0) {
+		$('.bingol-cells').find('input').addClass('bingol-success');
+
+		$(erros).each(function (index, erro) {
+			$('.bingol-cells').find('#'+erro.i).removeClass('bingol-success');
+			$('.bingol-cells').find('#'+erro.i).addClass('bingol-error');
+		})
+	} else {
+		stop = false;
+		$('.bingol-cells').find('input').addClass('bingol-success');
+		$('#modalGanhou').modal('show');
+
+		$('#modalGanhou').on('hidden.bs.modal', function (e) {
+		  	stop = true;
+		})
+
+		$('#modalGanhou').on('shown.bs.modal', function (e) {
+		  	fade();
+		})
+
+		function fade() {
+			if(!stop){
+				$('#modalGanhou').fadeTo(600, 0.1, function () {
+					setTimeout(function () {
+						if(!stop){
+							$('#modalGanhou').fadeTo(600, 1.0 , fade($('#modalGanhou')));
+						}
+					}, 300)
+				})
+			}
+		}
+	}
+
 }
 
 function atualizaNumeros(numeros) {
