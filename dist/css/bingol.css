@@ -35,6 +35,15 @@ body {
 	font-size 		: 20pt;
 }
 
+.bingol-success {
+	border-bottom 	: 2px solid green;
+}
+
+.bingol-error {
+	border-bottom 	: 2px solid red !important;
+}
+
+
 .bingol-cell:focus { 
 	border-bottom: 2px solid green;
 }
@@ -47,4 +56,9 @@ body {
 
 .btn-validar {
 	color: #FFF;
+}
+
+.numerinho {
+	margin-right: 5px;
+	margin-bottom: 5px;
 }
