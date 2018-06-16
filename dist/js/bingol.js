@@ -6,10 +6,14 @@ var igual = false;
 var n;
 var stop = false;
 
-// vai criar uma nova instancia no localstorage toda vez que entrar na pagina para armazenar o jogo :D
+// vai criar uma nova instancia no localstorage toda vez
+//  que entrar na pagina para armazenar o jogo :D
 var d = new Date();
 entry = d.toJSON();
 
+/**
+ * Main fun
+ */
 $(function () {
 	$(document).keypress(function (e) {
 		if(e.charCode === 32){
@@ -36,6 +40,7 @@ $(function () {
 
 });
 
+/** Função para retirar um numero */
 function tirarBolinha(){
 	if(!stop) {
 		if(numeros.length === 0){
@@ -115,11 +120,9 @@ function validarCampos() {
 	 			valor:null 
 	 			};
 
-
 	/**
 	 * Array para conter todos os erros
 	 */
-	
 	var erros = [];
 
 	/**
@@ -144,45 +147,20 @@ function validarCampos() {
 	});
 
 	$(campos).each(function (indexCampo, campo) {
-
-		// Foge do laço
-		// if(skipAll) {
-		// 	return true;
-		// }
-		// console.log('Verificano o campo: ' + indexCampo);
 		verdadeiro = false;
 		$(chubs).each(function (indexChubs, chub) {
-			// console.log('com o elemento: ' + indexChubs);
-			// Verifica se já ocorreu a verificação do
-			// elemento e pula pro próximo
-			// if(skip){
-			// 	return;
-			// }
 
 			// Verifica se é igual a algum elemento
-			// presente em chubs
-			if($(campo).val() == chub){
-				// console.log('campo de index: ' + indexCampo + 'verdadeiro');
+			// presente em chubs e se o campo n eh verdade
+			if(verdadeiro == false){
+				if($(campo).val() == chub){
 
-				// nao seta o erro se for true pq essa porra
-				// n ta funfando com return
-				// index = indexChubs;
-				// return true;
-				verdadeiro = true;
-			} else {
-
-				
-				if(indexChubs == chubs.length - 1){
-					// erro.i = indexCampo;
-					// erro.valor = $(campo).val();
-					// if(index != indexChubs){
-						if(verdadeiro == false){
+					// Diz que o campo é verdadeiro
+					verdadeiro = true;
+				} else {
+					if(indexChubs == chubs.length - 1){
 							erros.push({i:indexCampo, valor:$(campo).val()});
-						}
-
-					// }
-					// skipAll = true;
-					// return true;
+					}
 				}
 			}
 		})
@@ -197,6 +175,7 @@ function validarCampos() {
 		})
 	} else {
 		stop = false;
+		var audio = new Audio('assets/audio/tetra.mp3');
 		$('.bingol-cells').find('input').addClass('bingol-success');
 		$('#modalGanhou').modal('show');
 
@@ -205,6 +184,7 @@ function validarCampos() {
 		})
 
 		$('#modalGanhou').on('shown.bs.modal', function (e) {
+			audio.play();
 		  	fade();
 		})
 
@@ -223,10 +203,13 @@ function validarCampos() {
 
 }
 
+/**
+ * Função para mostrar os numeros que já sairam
+ * na tela de jogar
+ * @param  Array numeros que já foram
+ */
 function atualizaNumeros(numeros) {
-	// var numeros = localStorage.getItem(entry);
 	$(numeros).each(function (index, value) {
-		$('#numerosForam').append('<span class="btn btn-primary numerinho">' + value + '</span>')
-		// console.log('index: ' + index + 'valor: '+ value)
+		$('#numerosForam').append('<span class="btn btn-success numerinho">' + value + '</span>')
 	})
 }
