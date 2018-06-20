@@ -66,3 +66,68 @@ body {
 #modalGanhou {
 	background-color: green;
 }
+
+/** FULLER */
+.fuller {
+	display: none;
+	position: fixed; /* Faz preencher tudo e ficar na posicao */
+	z-index: 789;
+	left: 0;
+    top: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.fuller-head{
+	/*position: fixed;*/
+	right: 0; 
+    top: 0;
+	width: 100%;
+	cursor: pointer;
+}
+.top-icons{
+	margin-top: 15px;
+	margin-right: 15px;
+	clear: right;
+	float: right;
+	cursor: pointer;
+}
+/*
+.fuller-body .icon {
+	display: flex;
+	float: right;
+}*/
+
+.fuller-modal {
+	/*padding: 100%;*/
+}
+
+.fuller-body {
+	/*padding: 100%;*/
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	display: table;
+  	position: absolute;
+  	cursor: pointer;
+}
+
+.active {
+	display: block;
+}
+
+.bg-default {
+	background-color: #778beb;
+}
+
+#ball-container {
+	display: table-cell;
+  	vertical-align: middle;
+	font-size: 12em;
+}
+
+.text-default {
+	color: #63cdda;
+}

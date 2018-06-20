@@ -9,6 +9,7 @@
 		<!-- END LIVE RELOAD -->
 		<!-- CSS BOOTSTRAP -->
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-4.0.0/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/fontawesome/fontawesome-all.css">
 
 		<!-- BINGOL CSS -->
 		<link rel="stylesheet" type="text/css" href="dist/css/bingol.css">
@@ -22,7 +23,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 offset-md-3 text-center main-text">
-					<button id="btnRoda" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Lançar número!</button>
+					<button id="btnRoda" class="btn btn-success">Lançar número!</button>
 					<button id="btnBingo" class="btn btn-success" data-toggle="modal" data-target="#modalBingo">BINGO!!</button>
 				</div>
 			</div>
@@ -39,6 +40,19 @@
 		</div>
 	</body>
 </html>
+<!-- FULLER DE NÚMERO QUE SAIU -->
+<div class="fuller fuller-modal bg-default">
+	<div class="fuller-head">
+		<div class="top-icons text-default">
+			<i class="fas fa-times fa-2x"></i>
+		</div>
+	</div>
+	<div class="fuller-body">
+		<div id="ball-container" class="text-center">
+		</div>
+	</div>
+</div>
+
 
 <!-- MODAL RODAR -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -202,6 +216,7 @@
 </div>
 
 <!-- PAGE PLUGINS  -->
+<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="assets/js/jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap-4.0.0/bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/js/bingol.js"></script>
